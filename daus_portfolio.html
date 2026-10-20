@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="C:\Users\Emerson Daus\Documents\HTML 2\daus_portfolio.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">MyPortfolio<span>.</span></a>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="C:\Users\Emerson Daus\Documents\HTML 2\projects.html">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-text">
+            <p class="greeting">HELLO, I'M</p>
+            <h1>Emerson P. Daus</h1>
+            <h2>Mechatronics Engineering Student</h2>
+
+            <p class="hero-description">
+                Welcome to my portfolio. Here, you can learn more
+                about me, my interests, and the projects I am working on.
+            </p>
+
+            <a href="C:\Users\Emerson Daus\Documents\HTML 2\projects.html" class="btn">View My Projects</a>
+        </div>
+
+        <div class="profile">
+            <img src="C:\Users\Emerson Daus\Documents\HTML 2\download (2).jpg" alt="Your personal photo">
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="about section">
+            <p class="section-label">GET TO KNOW ME</p>
+            <h2>About Me</h2>
+
+            <p>
+                Hi! I'm Emerson P. Daus, a Mechatronics Engineering student
+                interested in robotics, electronics, programming, and
+                automation. I enjoy learning new skills and building
+                projects that turn ideas into reality.
+            </p>
+        </section>
+
+        <section class="skills section" id="interests">
+            <p class="section-label">WHAT I ENJOY</p>
+            <h2>My Interests</h2>
+
+            <div class="skill-list">
+                <article>
+                    <h3>Robotics</h3>
+                    <p>Learning how to design and build robots.</p>
+                </article>
+
+                <article>
+                    <h3>Arduino</h3>
+                    <p>Creating projects with microcontrollers and sensors.</p>
+                </article>
+
+                <article>
+                    <h3>Programming</h3>
+                    <p>Improving my coding skills through practical projects.</p>
+                </article>
+
+                <article>
+                    <h3>Electronics</h3>
+                    <p>Understanding circuits, components, and systems.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section">
+            <p class="section-label">LET'S CONNECT</p>
+            <h2>Contact Me</h2>
+
+            <p>
+                Have a question or want to talk about a project?
+                Feel free to contact me.
+            </p>
+
+            <a href="mailto:your-email@example.com" class="btn">
+                Send Me an Email
+            </a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Emerson Daus. All rights reserved.</p>
+    </footer>
+
+    <!-- Page transition animation -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const pageLinks = document.querySelectorAll("a[href]");
+
+            pageLinks.forEach(function (link) {
+                link.addEventListener("click", function (event) {
+                    const href = link.getAttribute("href");
+
+                    if (
+                        !href ||
+                        href.startsWith("#") ||
+                        href.startsWith("mailto:") ||
+                        href.startsWith("tel:") ||
+                        link.target === "_blank" ||
+                        event.ctrlKey ||
+                        event.metaKey ||
+                        event.shiftKey ||
+                        event.altKey ||
+                        event.button !== 0
+                    ) {
+                        return;
+                    }
+
+                    const destination = new URL(
+                        href,
+                        window.location.href
+                    );
+
+                    if (
+                        destination.origin !== window.location.origin ||
+                        destination.href === window.location.href
+                    ) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    document.body.classList.add("fade-out");
+
+                    setTimeout(function () {
+                        window.location.href = destination.href;
+                    }, 350);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
