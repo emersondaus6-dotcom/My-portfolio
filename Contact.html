@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Portfolio</title>
+    <style>
+        /* =========================
+           GENERAL STYLES
+        ========================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --background: #101010;
+            --surface: #191919;
+            --green: #4ce184;
+            --text: #ffffff;
+            --muted: #b5b5b5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            animation: pageFadeIn 0.5s ease both;
+        }
+
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes contentSlideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+        .navbar {
+            min-height: 75px;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 25px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--background);
+            border-bottom: 1px solid #242424;
+        }
+
+        .logo {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--green);
+        }
+
+        /* =========================
+           PAGE HEADER
+        ========================= */
+        .page-header {
+            padding: 75px 10% 45px;
+            text-align: center;
+            animation: contentSlideIn 0.7s ease both;
+        }
+
+        .section-label {
+            color: var(--green);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .page-header h1 {
+            font-size: clamp(36px, 6vw, 52px);
+            margin-bottom: 15px;
+        }
+
+        .page-header h1 span {
+            color: var(--green);
+        }
+
+        .page-header p:not(.section-label) {
+            max-width: 650px;
+            margin: 0 auto;
+            color: var(--muted);
+        }
+
+        /* =========================
+           CONTACT SECTION
+        ========================= */
+        .contact-section {
+            padding: 20px 10% 90px;
+            max-width: 750px;
+            margin: 0 auto;
+            animation: contentSlideIn 0.8s ease both;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid #292929;
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            background: var(--background);
+            border: 1px solid #292929;
+            border-radius: 6px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+
+        .form-group textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px 25px;
+            color: #101010;
+            background: var(--green);
+            border: 2px solid var(--green);
+            border-radius: 5px;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--green);
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+        footer {
+            padding: 25px 10%;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px;
+            border-top: 1px solid #292929;
+        }
+
+        /* =========================
+           RESPONSIVE & ACCESSIBILITY
+        ========================= */
+        @media (max-width: 700px) {
+            .navbar {
+                padding: 18px 5%;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px 22px;
+            }
+
+            .page-header {
+                padding: 55px 7% 35px;
+            }
+
+            .contact-section {
+                padding: 15px 7% 60px;
+            }
+
+            .contact-card {
+                padding: 25px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">Port<span>folio.</span></a>
+        <ul class="nav-links">
+            <li><a href="C:\Users\Emerson Daus\Documents\HTML 2\daus_portfolio.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+        </ul>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <p class="section-label">GET IN TOUCH</p>
+        <h1>Contact <span>Me</span></h1>
+        <p>Have a question or want to work together? Send a message below.</p>
+    </header>
+
+    <!-- Contact Form -->
+    <main class="contact-section">
+        <form class="contact-card" action="#" method="POST">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Emerson P. Daus. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
